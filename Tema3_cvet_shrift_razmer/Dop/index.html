@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        height: 10000px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="6">Содержание ДОП заданий</h2>
+    <ul>
+      <li><a href="#1">#BruceWillis</a></li>
+      <li><a href="#2">#CANDY</a></li>
+      <li><a href="#3">Результат</a></li>
+      <li><a href="#4">Теория как я к этому пришел</a></li>
+      <li><a href="#5">Безопасная палитра</a></li>
+    </ul>
+
+    <font color="#BruceWillis" id="1"
+      ><strong>#BruceWillis</strong> <br />
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora natus
+      non quisquam eos expedita magnam dicta aspernatur commodi unde impedit,
+      corporis odit reiciendis, molestias porro ad voluptas! Et, laboriosam at.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid sed
+      voluptatum explicabo et. Voluptate possimus repellat, nisi eius
+      reprehenderit sequi ipsa id cum, autem repellendus adipisci suscipit
+      doloribus ratione quidem. Accusamus unde praesentium, aspernatur inventore
+      sint, exercitationem consequuntur expedita voluptatibus corporis dolorum,
+      quaerat corrupti autem. Qui sed obcaecati labore debitis, mollitia quaerat
+      magnam maiores, possimus rerum, laboriosam dicta animi. Molestiae. Laborum
+      accusamus odit amet excepturi maiores minus natus suscipit dolor autem!
+      Minima, recusandae. Iste voluptate iure qui vel magni sequi inventore
+      ullam quae cumque modi? Corporis quibusdam dolores odit eveniet. <br />
+      <a href="#6">К содержанию</a></font
+    ><br />
+    <br />
+    <font color="#CANDY" id="2"
+      ><strong>#CANDY</strong> <br />
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae
+      laboriosam aspernatur tempora quas, cupiditate facilis doloribus animi et
+      ab aliquam sunt perspiciatis, labore doloremque consectetur quae maxime
+      molestiae consequuntur expedita. Repudiandae ducimus esse consequatur
+      maiores libero minima nulla est similique culpa veritatis aliquid eius sed
+      expedita possimus odio hic sint, aperiam amet asperiores impedit aliquam
+      nam. Facilis, dolorum. Qui, commodi! Ut voluptate dolorum modi porro,
+      iusto consectetur quia natus voluptates perspiciatis veniam tempora a
+      aspernatur fugit vitae quisquam beatae quod praesentium cum excepturi
+      officiis dolore obcaecati fugiat. Doloremque, eligendi earum! Velit
+      quibusdam omnis nulla asperiores, numquam natus autem libero ex quae illo
+      atque ullam adipisci dignissimos quas non aliquid nihil debitis dolore
+      accusantium laborum laboriosam explicabo ea enim dolor! Eum. Quae ipsum,
+      adipisci dolorum quos doloribus ad atque sapiente esse neque accusamus ea,
+      voluptatem in voluptate ratione quod culpa hic laborum unde quidem.
+      Tenetur delectus maxime velit harum officiis cum. Voluptates dolores
+      cumque veniam dignissimos, iusto nihil magnam molestiae unde inventore
+      temporibus magni numquam aliquam architecto provident sunt veritatis
+      explicabo ab! Consectetur facilis similique tempora quaerat reprehenderit
+      vel illum. Eius. Quasi qui ipsam velit perspiciatis debitis, tenetur
+      quibusdam possimus consequuntur, architecto unde dolore necessitatibus
+      aliquid tempora ratione veritatis, iure repudiandae? Magni praesentium rem
+      nesciunt ut tempora enim incidunt distinctio omnis! разберитесь, что при
+      этом за цвета получаются и почему. <br />
+      <a href="#6">К содержанию</a>"</font
+    >
+    <h1 id="3">Результат</h1>
+
+    <p>
+      c #BruceWillis у меня получился цвет #b0e000 он же и есть rgb(176, 224, 0)
+      как получилось: <br />
+      заменяем все не шестнадцатеричные символы (0-9a-f) на 0 <br />
+      тобишь : b00ce000000 > добовлякм 0 чтобы число было кратное 3 >
+      b00ce0000000 > делим по 4 символа > b00c e000 0000 > убираем по 2 символа
+      каждой группы с правой стороны > b0,e0,00 > получаем наш цвет #b0e000
+      <br />
+      c #CANDY получился #CA0D00 он же rgb(202, 13, 0) с ним все тоже самое<br />
+      <a href="#6">К содержанию</a>
+    </p>
+    <h2 id="4">Теория как я к этому пришел</h2>
+    <a href="#6">К содержанию</a>
+    <pre style="font-size: large;">
+Похоже, что в IE алгоритм разбора цвета, не связанный с CSS, ведет себя следующим образом, чтобы получить шестизначное шестизначное значение из любой строки: 
+        эти шаги могут выполняться не в том же порядке или с использованием тех же критериев, что и IE, но конечный результат насколько я могу судить идентично. 
+        Сначала удалите все хеш-метки, затем замените все не шестнадцатеричные символы (0-9a-f) на 0. 
+        Например: #zqbttv становится 00b000. 
+        Для длины 1-2, правый блок до 3 символов с 0. 
+        Например: «0F» становится «0F0», «F» становится «F00».
+        Для длины 3 возьмите каждую цифру в качестве значения красного, зеленого или синего цвета и добавьте 0 к этому значению.
+        Например: «0F0» становится RGB (0, F, 0), который становится RGB (00, 0F, 00) или 000F00. 
+        На этом этапе выполняется любое значение короче 4 цифр. 
+        Для длин 4 и более, поле добавляется справа от 0 до следующего полного кратного 3. Этот шаг важен для более длинных полей. 
+        Например: «0F0F» становится «0F0F00», «0F0F0F0» становится «0F0F0F000», а «00FF00FF00FF00FF» становится «00FF00FF00FF00FF00». 
+        Далее строка разбивается на три четные части, представляющие красный, зеленый и синий, слева направо. 
+        «0F0F00» ведет себя как ожидалось и становится RGB (0F, 0F, 00). На этом этапе выполняется любая строка из 6 символов.
+        Более длинные строки, такие как «1234567890ABCDE», становятся RGB (12345, 67890, ABCDE). Чрезвычайно длинные строки разделяются аналогично. «1234567890ABCDE1234567890ABCDE» становится RGB (1234567890, ABCDE12345, 67890ABCDE). 
+        На этом этапе значения RGB усекаются по отдельности. 
+        Если отдельные значения RGB имеют длину более 8 символов, они усекаются до 8 символов путем удаления символов слева. Это, в частности, было неожиданным. 
+        RGB (1234567890, ABCDE12345, 67890ABCDE) становится RGB (34567890, CDE12345, 890ABCDE) и так далее. 
+        Когда отдельные значения RGB имеют длину менее 8 символов, они усекаются путем удаления символов справа. 
+        RGB (34567890, CDE12345, 890ABCDE) становится RGB (34, CD, 89) или # 34CD89 в более традиционных обозначениях.
+        Любая строка должна быть преобразована в шестизначный шестизначный цвет с помощью вышеуказанных шагов. 
+        Например, font color = "6db6ec49efd278cd0bc92d1e5e072d68" (да, это случайные шестнадцатеричные данные) приведет к тому, что IE отобразит текст в цвете « 6ecde0 », довольно приятный светло-голубой. Это совсем не то, что я ожидал до изучения поведения IE. Я мог бы ожидать усечение до " 6db6ec " или до " 072d68 " (также бледный блюз, по совпадению). Однако, если вы внимательно посмотрите внутрь случайной шестнадцатеричной строки, компоненты, составляющие окончательное значение RGB, присутствуют и в последовательном порядке: «6db 6e c49efd278 cd 0bc92d1e5 e0 72d68»
+        Чтобы продолжить декодирование этого значения, его сначала нужно дополнить: 
+        6db 6e c49efd278 cd 0bc92d1e5 e0 72d680 
+        Затем разделить на три четные части: 
+        RGB (6db 6e c49efd, 278 cd 0bc92d, 1e5 e0 72d680) 
+        Затем эти части будут обрезаны до 8 цифры: 
+        RGB ( 6e c49efd, cd 0bc92d, e0 72d680) 
+        Затем обрезаются вправо до 2 наиболее значимых цифр: 
+        RGB ( 6e , cd , e0 )
+        И вот он у вас, тот же цвет, который будет отображать IE, если вы введете 6db6ec49efd278cd0bc92d1e5e072d68 в одно из полей в тестовом апплете выше.
+    </pre>
+    <h2 id="5">Безопасная палитра</h2>
+    <p>
+      При создании изображения для публикации в сети главной проблемой является
+      правильная передача цветов на разных типах компьютеров, мониторов и
+      браузеров. Когда браузер не в состоянии правильным образом передать тот
+      или иной цвет, он подбирает похожий или смешивает несколько соседних
+      цветов (dithering). Иногда первоначальный цвет может быть заменен на
+      что-то совершенно неподходящее. Цвета из нашей палитры везде будут
+      отображаться правильным образом и без искажений. Любой из 216 цветов
+      «безопасной» палитры может быть использован для графики, текста и фонов.
+      Как пользоваться палитрой Палитра состоит из 36 сочетаний 6 оттенков
+      красного, зеленого и синего. Эти градации — 0, 51, 102, 153, 204, 255. Над
+      каждым цветом указаны два значения — RGB (для создания цвета в графическом
+      редакторе) и HEX (для обозначения цвета в HTML). Другими словами, 216
+      цветов стандартной 16-цветовой палитры и палитры 6×6×6 были наиболее
+      предпочтительными для цвета изображения и фона
+    </p>
+    <a href="#6"><strong>К содержанию</strong></a>
+  </body>
+</html>
